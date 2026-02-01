@@ -1,0 +1,155 @@
+site_name: 秦菲 Qinphy (站点测试中...)
+site_url: https://qinphy-hub.github.io/note-station/
+theme:
+  name: material
+  features:
+    - navigation.tabs
+    - search.suggest
+    - search.highlight
+    - search.share
+    - navigation.top
+    - navigation.indexes
+    - navigation.instant
+    - content.footnote.tooltips
+    - content.tabs.link
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+  logo: assets/me.jpg
+  favicon: assets/logo.jpg
+  icon:
+    annotation: material/chevron-right-circle
+
+# ==================== 文档目录 =====================
+nav:
+  - 首页: index.md
+  - 阅读札记:
+    - Part1/index.md
+    - 黑塞专题:
+      - Part1/Hesse/index.md
+      - 德米安: Part1/Hesse/demian.md
+      - 悉达多: Part1/Hesse/siddhartha.md
+      - 在轮下: Part1/Hesse/untermrad.md
+      - 荒原狼: Part1/Hesse/steppenwolf.md
+      - 朋友: Part1/Hesse/freunde.md
+    - 月亮与六便士: Part1/moon.md
+  - 我的创作:
+    - Part2/index.md
+  - 数学基础: 
+    - Part3/index.md
+    - 线性代数: 
+      - Part3/LinearAlgebra/index.md
+      - 导论: Part3/LinearAlgebra/section1.md
+  - 运筹学:
+    - Part4/index.md
+    - Lagrange乘子法: Part4/lagrange.md
+    - KKT条件: Part4/kkt.md
+    - Frank-Wolfe算法: Part4/frankwolfe.md
+    - 近似平均算法: Part4/saa.md
+    - Benders分解: Part4/benders.md
+    - 线性规划: 
+      - Part4/Linear/index.md
+      - 第一章: Part4/Linear/section1.md
+  - 人工智能:
+    - Part5/index.md
+  - 交通运输:
+    - Part6/index.md
+    - 用户均衡: Part6/UE.md
+# ====================== end =======================
+
+docs_dir: docs/
+
+
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/Qinphy-Hub
+    - icon: fontawesome/brands/instagram
+      link: https://space.bilibili.com/433525536
+    - icon: fontawesome/solid/paper-plane
+      link: mailto:qinphy@126.com
+  analytics:
+  provider: google
+  property: G-NVXC1ZHJ8C
+  feedback:
+    title: Was this page helpful?
+    ratings:
+      - icon: material/emoticon-happy-outline
+        name: This page was helpful
+        data: 1
+        note: >-
+          Thanks for your feedback!
+      - icon: material/emoticon-sad-outline
+        name: This page could be improved
+        data: 0
+        note: >-
+          Thanks for your feedback! Help us improve this page by
+          using our <a href="..." target="_blank" rel="noopener">feedback form</a>.
+copyright: Copyright &copy; 2026 - 2030 Qinphy
+
+markdown_extensions:
+  - pymdownx.blocks.caption
+  - pymdownx.critic:
+      mode: view
+  - pymdownx.caret
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.tilde
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - md_in_html
+  - pymdownx.tabbed:
+      alternate_style: true
+  - footnotes
+  - pymdownx.arithmatex:
+      generic: true
+  - attr_list
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+
+extra_css:
+  - css/main.css
+  - https://cdn.jsdelivr.net/npm/lxgw-wenkai-screen-webfont@1.1.0/style.css
+  - https://unpkg.com/katex@0/dist/katex.min.css
+
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
+  - javascripts/katex.js
+  - https://unpkg.com/katex@0/dist/katex.min.js
+  - https://unpkg.com/katex@0/dist/contrib/auto-render.min.js
+
+plugins:
+  - statistics
+  - glightbox
+  - search:
+      separator: '[\s\u200b\-]'
+      lang: zh
+  - git-authors:
+      show_contribution: true
+      exclude:
+        - index.md
+        - index_CN.md
+      enabled: true
+      show_email_address: false
+  - git-revision-date-localized:
+      type: datetime
+      custom_format: "%d %B %Y"
+      timezone: Asia/Shanghai
+      locale: en
+      fallback_to_build_date: false
+      enable_creation_date: true
+      exclude:
+        - index.md
+      enabled: true

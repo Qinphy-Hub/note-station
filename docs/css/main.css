@@ -1,0 +1,18 @@
+:root {
+    --md-text-font:  "LXGW WenKai Screen", sans-serif; 
+  }
+
+
+@font-face {    
+    font-family: 'LXGW';    
+    src: url('./LXGWWenKaiGBScreen.woff') format('woff');/*IE*/     
+}
+
+.md-grid {
+    max-width: 1440px;   
+}
+
+.md-typeset .admonition.inline {
+    width: 350px;   
+    column-width: auto;
+}
