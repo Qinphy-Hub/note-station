@@ -14,7 +14,7 @@ $$
 
 &emsp;&emsp;假设$\boldsymbol{x}^*$为满足条件的最优解，它可能有两种情况：
 
-* $g(\boldsymbol{x}^*)<0$：此时最优解$\boldsymbol{x}^*$在可行域$K$的内部，称为內部解(interior solution)。这时候约束条件(\ref{f:neq-constrain})是无效的(inactive)。我们直接对目标函数求偏导就能得到驻点。
+* $g(\boldsymbol{x}^*)<0$：此时最优解$\boldsymbol{x}^*$在可行域$K$的内部，称为內部解(interior solution)。这时候约束条件($\ref{f:neq-constrain}$)是无效的(inactive)。我们直接对目标函数求偏导就能得到驻点。
 * $g(\boldsymbol{x}^*)=0$：此时最优解$\boldsymbol{x}^*$在可行域$K$的边界上，称为边界解(boundary solution)，此时约束条件是有效的(active)。单可以发现这时候只有等式约束，可以使用拉格朗日乘子法求解。
 
 &emsp;&emsp;我们希望把上述两种情况统一起来，所以，首先我们希望把不等式约束也能写成拉格朗日函数的形式(见上一章节[拉格朗日乘子法](./lagrange.md))。
@@ -70,7 +70,7 @@ $$
 
 &emsp;&emsp;记$\boldsymbol{x}^*$为最优解，如果所有$g_i(\boldsymbol{x}),i=1,2,...,m$连续，在$\boldsymbol{x}^*$处所有有效约束的梯度构成一组线性独立的向量，则KKT条件在$\boldsymbol{x}^*$处一定成立。
 
-&emsp;&emsp;观察上述例子的约束条件(\ref{f:kkt-regular})，计算它们的梯度：
+&emsp;&emsp;观察上述例子的约束条件($\ref{f:kkt-regular}$)，计算它们的梯度：
 
 $$
 \begin{equation*}
