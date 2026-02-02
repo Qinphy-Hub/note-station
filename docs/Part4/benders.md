@@ -102,7 +102,7 @@ $$
     - 同时得到子问题的目标函数最优值$z_{\mathcal{DSP}}^*$，更新上界：
 
     $$
-    \begin{equation}\notag
+    \begin{equation}\tag{3}\label{ub}
     UB=\boldsymbol{f}^\top\overline{\boldsymbol{y}}_t+z_{\mathcal{DSP}}^*
     \end{equation}
     $$
@@ -112,7 +112,7 @@ $$
 3. [**Step 3**(求解主问题)] - 求解主问题$\mathcal{MP}_{t+1}$，可以得到其解$\overline{\boldsymbol{y}}_{t+1}$和$q$。此时，可以更新下界：
 
     $$
-    \begin{equation}\notag
+    \begin{equation}\tag{4}\label{lb}
     LB=z_{\mathcal{MP}_{t+1}}^*=\boldsymbol{f}^\top\overline{\boldsymbol{y}}_{t+1}+q
     \end{equation}
     $$
@@ -252,7 +252,7 @@ B = np.array([[2, -4], [-1, 2], [-3, 1]])
         return None
     ```
 
-3. 从子问题处我们获得了其解$\boldsymbol{\alpha}$和最优值$z^*_{\mathcal{DSP}}$和由式子<span data-type="text" style="color: var(--b3-font-color9);">(6)</span>得到的上界，进而得到新的主问题为：
+3. 从子问题处我们获得了其解$\boldsymbol{\alpha}$和最优值$z^*_{\mathcal{DSP}}$和由式子($\ref{ub}$)得到的上界，进而得到新的主问题为：
 
     $$
     \begin{align*}
@@ -295,59 +295,59 @@ B = np.array([[2, -4], [-1, 2], [-3, 1]])
         return None, None
     ```
 
-	&emsp;&emsp;求解上述主问题，得到新的$\overline{\boldsymbol{y}}$和$q$，以及由上式(7)得到的下界。比较上下界的差距即可判断程序出口。
+	&emsp;&emsp;求解上述主问题，得到新的$\overline{\boldsymbol{y}}$和$q$，以及由上式($\ref{lb}$)得到的下界。比较上下界的差距即可判断程序出口。
 
 ## 3. 代码
 
-    &emsp;&emsp;基本代码在前文已经准备好了，以下实现主要的迭代过程：
+&emsp;&emsp;基本代码在前文已经准备好了，以下实现主要的迭代过程：
 
-    ```python
-    ub = GRB.INFINITY
-    lb = -GRB.INFINITY
-    y_hat = np.random.random((2,))
-    flag = False
-    while lb < ub:
-        z_s = daul_problem(y_hat)
-        if z_s is not None:
-            ub = f @ y_hat + z_s
-        else:
-            flag = True
-            break
-        y_hat, z_m = master_problem()
-        if y_hat is not None:
-            lb = z_m
-        else:
-            flag = True
-            break
-
-    print("Benders Decomposition:")
-    if flag:
-        print('  No solution')
+```python
+ub = GRB.INFINITY
+lb = -GRB.INFINITY
+y_hat = np.random.random((2,))
+flag = False
+while lb < ub:
+    z_s = daul_problem(y_hat)
+    if z_s is not None:
+        ub = f @ y_hat + z_s
     else:
-        print('  obj = ub = lb =', ub)
-        print('  y=', y_hat)
-        print('  x=', sub_problem(y_hat))
-    ```
+        flag = True
+        break
+    y_hat, z_m = master_problem()
+    if y_hat is not None:
+        lb = z_m
+    else:
+        flag = True
+        break
 
-	&emsp;&emsp;我们可以直接使用Gurobi求解原问题，验证算法的正确性：
+print("Benders Decomposition:")
+if flag:
+    print('  No solution')
+else:
+    print('  obj = ub = lb =', ub)
+    print('  y=', y_hat)
+    print('  x=', sub_problem(y_hat))
+```
 
-    ```python
-    def primal_problem():
-        m = Model()
-        x = m.addMVar(2, vtype=GRB.CONTINUOUS, name='x')
-        y = m.addMVar(2, vtype=GRB.INTEGER, name='y')
-        m.setObjective(c @ x + f @ y, GRB.MINIMIZE)
-        m.addConstr(A @ x + B @ y >= b)
-        m.setParam('outPutFlag', 0)
-        m.update()
-        m.optimize()
-        print('primal problem:')
-        if m.status == GRB.Status.OPTIMAL:
-            print('  x=', x.X)
-            print('  y=', y.X)
-            print('  obj=', m.ObjVal)
-        else:
-            print("No Solution!")
+&emsp;&emsp;我们可以直接使用Gurobi求解原问题，验证算法的正确性：
 
-    primal_problem()
-    ```
+```python
+def primal_problem():
+    m = Model()
+    x = m.addMVar(2, vtype=GRB.CONTINUOUS, name='x')
+    y = m.addMVar(2, vtype=GRB.INTEGER, name='y')
+    m.setObjective(c @ x + f @ y, GRB.MINIMIZE)
+    m.addConstr(A @ x + B @ y >= b)
+    m.setParam('outPutFlag', 0)
+    m.update()
+    m.optimize()
+    print('primal problem:')
+    if m.status == GRB.Status.OPTIMAL:
+        print('  x=', x.X)
+        print('  y=', y.X)
+        print('  obj=', m.ObjVal)
+    else:
+        print("No Solution!")
+
+primal_problem()
+```
