@@ -73,6 +73,10 @@ nav:
     - 线性规划: 
       - Part4/Linear/index.md
       - 第一章: Part4/Linear/section1.md
+    - 整数规划:
+      - Part4/Integer/index.md
+      - 导论: Part4/Integer/section1.md
+      - 松弛与界限: Part4/Integer/section2.md
     - 排队论:
       - Part4/Queue/index.md
       - 导论: Part4/Queue/section1.md
