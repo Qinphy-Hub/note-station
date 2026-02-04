@@ -1,17 +1,30 @@
 site_name: 秦菲 Qinphy
 site_url: https://qinphy-hub.github.io/note-station/
+site_description: 秦菲Qinphy的分享站台
+site_dir: site
+site_author: Qinphy-Hub
+
+repo_url: https://github.com/Qinphy-Hub/note-station/
+repo_name: Qinphy-Hub/note-station
+
+edit_uri: /edit/main/docs
+docs_dir: docs/
+
 theme:
+  language: "zh"
   name: material
+  font: false
   features:
     - navigation.tabs
-    - search.suggest
-    - search.highlight
-    - search.share
     - navigation.top
     - navigation.indexes
     - navigation.instant
+    - search.suggest
+    - search.highlight
+    - search.share
     - content.footnote.tooltips
     - content.tabs.link
+    - content.code.copy
   palette:
     - media: "(prefers-color-scheme: light)"
       scheme: default
@@ -27,6 +40,8 @@ theme:
   favicon: assets/logo.jpg
   icon:
     annotation: material/chevron-right-circle
+    view: material/eye
+    repo: fontawesome/brands/git-alt 
 
 # ==================== 文档目录 =====================
 nav:
@@ -65,10 +80,6 @@ nav:
     - 用户均衡: Part6/UE.md
 # ====================== end =======================
 
-docs_dir: docs/
-
-
-
 extra:
   social:
     - icon: fontawesome/brands/github
@@ -77,26 +88,29 @@ extra:
       link: https://space.bilibili.com/433525536
     - icon: fontawesome/solid/paper-plane
       link: mailto:qinphy@126.com
-  analytics:
-  provider: google
-  property: G-NVXC1ZHJ8C
-  feedback:
-    title: Was this page helpful?
-    ratings:
-      - icon: material/emoticon-happy-outline
-        name: This page was helpful
-        data: 1
-        note: >-
-          Thanks for your feedback!
-      - icon: material/emoticon-sad-outline
-        name: This page could be improved
-        data: 0
-        note: >-
-          Thanks for your feedback! Help us improve this page by
-          using our <a href="..." target="_blank" rel="noopener">feedback form</a>.
+  # analytics:
+  #   provider: google
+  #   property: G-NVXC1ZHJ8C
+  #   feedback:
+  #     title: Was this page helpful?
+  #     ratings:
+  #       - icon: material/emoticon-happy-outline
+  #         name: This page was helpful
+  #         data: 1
+  #         note: >-
+  #           Thanks for your feedback!
+  #       - icon: material/emoticon-sad-outline
+  #         name: This page could be improved
+  #         data: 0
+  #         note: >-
+  #           Thanks for your feedback! Help us improve this page by
+  #           using our <a href="..." target="_blank" rel="noopener">feedback form</a>.
+
 copyright: Copyright &copy; 2026 - 2030 Qinphy
 
 markdown_extensions:
+  - meta
+  - def_list
   - pymdownx.blocks.caption
   - pymdownx.critic:
       mode: view
@@ -104,15 +118,22 @@ markdown_extensions:
   - pymdownx.keys
   - pymdownx.mark
   - pymdownx.tilde
+  - pymdownx.tasklist:
+      custom_checkbox: true
   - admonition
   - pymdownx.details
   - pymdownx.superfences
   - md_in_html
   - pymdownx.tabbed:
       alternate_style: true
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
   - footnotes
   - pymdownx.arithmatex:
       generic: true
+      block_tag: "pre"
   - attr_list
   - pymdownx.emoji:
       emoji_index: !!python/name:material.extensions.emoji.twemoji
@@ -133,6 +154,7 @@ extra_javascript:
 plugins:
   - statistics
   - glightbox
+  - tags
   - search:
       separator: '[\s\u200b\-]'
       lang: zh
@@ -140,9 +162,8 @@ plugins:
       show_contribution: true
       exclude:
         - index.md
-        - index_CN.md
       enabled: true
-      show_email_address: false
+      show_email_address: true
   - git-revision-date-localized:
       type: datetime
       custom_format: "%d %B %Y"
