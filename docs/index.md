@@ -1,5 +1,14 @@
 # 欢迎来到秦菲Qinphy的小站(测试版)
 
+!!! example "近期更新"
+
+    1. 2026.02.04：
+        * 线性规划：[第一章](./Part4/Linear/section1.md)
+        * 整数规划：[导论](./Part4/Integer/section1.md)
+        * 整数规划：[松弛与界限](./Part4/Integer/section2.md)
+        * 排队论：[导论](./Part4/Queue/section1.md)
+    2. (正在学习：整数规划，排队论...)
+
 ## 关于我
 
 &emsp;&emsp;:woman_student_tone1: 秦菲 Qinphy
