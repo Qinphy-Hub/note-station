@@ -9,4 +9,5 @@
 * [整数规划](./Integer/index.md)。
 * 凸优化。
 * 最优化方法。
+* [分解方法](./Decomposition/index.md)。
 * [排队论](./Queue/index.md)。

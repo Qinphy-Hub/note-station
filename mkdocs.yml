@@ -77,6 +77,8 @@ nav:
       - Part4/Integer/index.md
       - 导论: Part4/Integer/section1.md
       - 松弛与界限: Part4/Integer/section2.md
+    - 分解方法:
+      - Part4/Decomposition/index.md
     - 排队论:
       - Part4/Queue/index.md
       - 导论: Part4/Queue/section1.md
