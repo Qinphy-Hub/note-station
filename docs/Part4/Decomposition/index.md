@@ -4,7 +4,7 @@
 
 !!! abstract "目录"
 
-    * 线性规划-复杂约束：Dantzig-Wolfe分解方法
+    * 2026.02.06 - [线性规划-复杂约束](./section1.md)：Dantzig-Wolfe分解方法
     * 线性规划-复杂变量：Benders分解方法
     * 对偶：知识回顾
     * 非线性规划中的分解方法：Lagrangian松弛方法
