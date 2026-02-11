@@ -24,3 +24,7 @@ pip install mkdocs-git-authors-plugin
 pip install mkdocs-statistics-plugin
 ```
 
+本地运行项目：
+```shell
+mkdocs serve
+```
