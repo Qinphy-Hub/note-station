@@ -5,7 +5,7 @@
 
 @font-face {    
     font-family: 'LXGW';    
-    src: url('./LXGWWenKaiGBScreen.woff') format('woff');/*IE*/     
+    src: url('./LXGWWenKaiMono-Regular.ttf') format('ttf');/*IE*/     
 }
 
 .md-grid {
