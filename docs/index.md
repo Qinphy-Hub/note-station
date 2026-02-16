@@ -2,10 +2,11 @@
 
 !!! example "近期更新"
 
-    1. 2026.02.12：[东方之旅-札记](./Part1/Hesse/fahrt.md)
-    2. 2026.02.08：[月亮与六便士-札记](./Part1/moon.md)
-    3. 2026.02.06：[DW分解](./Part4/Decomposition/section1.md)
-    4. 2026.02.04：
+    1. 2026.02.16: [罗斯哈尔德-札记](./Part1/Hesse/roshalde.md)
+    2. 2026.02.12：[东方之旅-札记](./Part1/Hesse/fahrt.md)
+    3. 2026.02.08：[月亮与六便士-札记](./Part1/moon.md)
+    4. 2026.02.06：[DW分解](./Part4/Decomposition/section1.md)
+    5. 2026.02.04：
         * 线性规划：[第一章](./Part4/Linear/section1.md)
         * 整数规划：[导论](./Part4/Integer/section1.md)
         * 整数规划：[松弛与界限](./Part4/Integer/section2.md)
