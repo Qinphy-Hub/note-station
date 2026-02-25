@@ -72,7 +72,6 @@ nav:
     - KKT条件: Part4/kkt.md
     - Frank-Wolfe算法: Part4/frankwolfe.md
     - 近似平均算法: Part4/saa.md
-    - Benders分解: Part4/benders.md
     - 线性规划: 
       - Part4/Linear/index.md
       - 第一章: Part4/Linear/section1.md
@@ -83,6 +82,7 @@ nav:
     - 分解方法:
       - Part4/Decomposition/index.md
       - 复杂约束(DW分解): Part4/Decomposition/section1.md
+      - 复杂变量(Benders分解): Part4/Decomposition/section2.md
     - 排队论:
       - Part4/Queue/index.md
       - 导论: Part4/Queue/section1.md
