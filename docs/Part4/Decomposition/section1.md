@@ -26,7 +26,7 @@ $$
 
 &emsp;&emsp;为方便后续问题的描述，我们简记如下的符号：
 
-* 整个问题的决策变量记为$\boldsymbol{x}=\left[\boldsymbol{x}^\top_1|\boldsymbol{x}_2^\top|\cdots|\boldsymbol{x}_l^\top\right]^\top$，记其长度为$n=\sum\limits_{i=1}^l$，则$\boldsymbol{x}=(x_1,x_2,...,x_n)^\top$。
+* 整个问题的决策变量记为$\boldsymbol{x}=\left[\boldsymbol{x}^\top_1|\boldsymbol{x}_2^\top|\cdots|\boldsymbol{x}_l^\top\right]^\top$，记其长度为$n=\sum\limits_{i=1}^ln_i$，则$\boldsymbol{x}=(x_1,x_2,...,x_n)^\top$。
 * 根据$\boldsymbol{x}$的表示，每个分块可表示为：$\boldsymbol{x}_i=(x_j,x_{j+1},...,x_{j+n_i-1})^\top$，其中$j=1+\sum\limits_{k=1}^{i-1}n_k$，令$\sum\limits_{k=1}^0n_k=0$。
 * 同理，成本系数也有类似于$\boldsymbol{x}$的表示：$\boldsymbol{c}=\left[\boldsymbol{c}_1^\top|\boldsymbol{c}_2^\top|\cdots|\boldsymbol{c}_l^\top\right]^\top=(c_1,c_2,...,c_n)^\top$。
 * 记复杂约束的系数矩阵为$B=\left[B_1|B_2|\cdots|B_l\right]$，则复杂约束可表示为$B\boldsymbol{x}=\boldsymbol{b}_0$。
@@ -127,7 +127,7 @@ $$
 
     $$
     \begin{align*}
-    \min\limits_{\boldsymbol{x}_i}\quad&\left(\boldsymbol{c}_i^{(s)}\right)^\top\boldsymbol{x}_i^{(s)} \\
+    \min\limits_{\boldsymbol{x}_i}\quad&\left(\hat{\boldsymbol{c}}_i^{(s)}\right)^\top\boldsymbol{x}_i^{(s)} \\
     \text{s.t.}\quad&A_i\boldsymbol{x}_i^{(s)}=\boldsymbol{b}_i \\
     &\boldsymbol{x}_i^{(s)}\geq0
     \end{align*}
@@ -211,7 +211,7 @@ $$
 &emsp;&emsp;所以，下界就可以定义为：
 
 $$
-z^{(k)}_{\mathrm{low}}=z^{(k)}_{\mathrm{sub}}+(\boldsymbol{\gamma}^{(k)})^\top \boldsymbol{b}_0
+z^{(k)}_{\mathrm{sub}}=z^{(k)}_{\mathrm{sub}}+(\boldsymbol{\gamma}^{(k)})^\top \boldsymbol{b}_0
 $$
 
 !!! question
@@ -304,13 +304,13 @@ $$
             \min\quad&-22\lambda_1-17\lambda_2 \\
             \mathrm{s.t.}\quad&18\lambda_1+13\lambda_2\leq 17 \\
             &\lambda_1+\lambda_2=1 \\
-            &\lambda_,\lambda_2\geq0
+            &\lambda_1,\lambda_2\geq0
             \end{align*}
             $$
 
             解得$\lambda_1^{(1)}=0.8,\lambda_2^{(1)}=0.2$，其约束对应的对偶变量值为$\gamma_1^{(1)}=-1,\sigma^{(1)}=-4$。
 
-        * Step 2-求解子问题：根据公式求解新的系数$\boldsymbol{c}_{\mathrm{new}}=(\boldsymbol{c}-\boldsymbol{\gamma}^\top B)$，那么
+        * Step 2-求解子问题：根据公式求解新的系数$\hat{\boldsymbol{c}}^{(2)}=(\boldsymbol{c}-\boldsymbol{\gamma}^\top B)$，那么
 
             $$ 
             \hat{c}_1^{(2)}=-4-(-1) \times 3 = -1, \hat{c}_2^{(2)}=-1-(-1)\times 2=1, \hat{c}_3^{(2)}=-6-(-1)\times 4=-2 
@@ -340,7 +340,7 @@ $$
             \min\quad&-22\lambda_1-17\lambda_2-21\lambda_3 \\
             \mathrm{s.t.}\quad&18\lambda_1+13\lambda_2+16\lambda_3\leq 17 \\
             &\lambda_1+\lambda_2+\lambda_3=1 \\
-            &\lambda_,\lambda_2,\lambda_3\geq0
+            &\lambda_1,\lambda_2,\lambda_3\geq0
             \end{align*}
             $$
 
