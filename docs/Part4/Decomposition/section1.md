@@ -89,13 +89,7 @@ d=z-\boldsymbol{\gamma}^\top\boldsymbol{r}-\sigma
 \end{equation}
 $$
 
-!!! quote "参考书籍"
-
-    [1] Bazaraa, M. S., Sherali, H. D., and Shetty, C. M. Nonlinear Programming, Theory and Algorithms, 2nd ed. John Wiley & Sons, New York, 1993.
-
-    [2] Castillo, E., Conejo, A., Pedregal, P., Garc´ıa, R., and Alguacil, N. Building and Solving Mathematical Programming Models in Engineering and Science. John Wiley & Sons, Inc., New York, 2001. Pure and Applied Mathematics: A WileyInterscience Series of Texts, Monographs and Tracts.
-
-&emsp;&emsp;有了下降成本的表示，我们反过来可以定义子问题的目标函数，以此，找到一个可以使主问题成本下降的新的基本可行解。因此，我们需要把下降成本$d$表示为与决策变量相关的形式：
+进一步写为与决策变量相关的形式：
 
 $$
 \begin{equation}\label{f1}\tag{4}
@@ -103,11 +97,32 @@ d=\boldsymbol{c}^\top\boldsymbol{x}-\boldsymbol{\gamma}^\top B\boldsymbol{x}-\si
 \end{equation}
 $$
 
-&emsp;&emsp;以此，我们就得到了子问题的目标函数，注意松弛问题根据分块是可以拆分为$l$个子问题的，所以对于第$i$个子问题，它的数学表达式为：
+
+!!! warning "个人推导"
+
+    &emsp;&emsp;对于上述主问题$(\mathcal{M})$，根据线性规划相关知识，我们知道当已知一个解，也即站在一个顶点处，它通向其它顶点的方向可以表示为：
+
+    $$ c_j-\boldsymbol{w}^\top A_j $$
+
+    其中，$c_j$表示第$j$个成本系数，$\boldsymbol{w}$是该问题的对偶变量，$A_j$是约束系数矩阵的第$j$列。
+
+    &emsp;&emsp;带入到这个主问题中，就有：成本系数$c_j=z^{(j)},j=1,2,...,p$，对偶变量$\boldsymbol{w}=\left[\begin{array}{c}\boldsymbol{\gamma}\\ \hline \sigma \end{array}\right]$，系数矩阵$A_j=\left[\begin{array}{c} \boldsymbol{r}^{(j)} \\ \hline 1 \end{array}\right]$，那么有如下推导：
+
+    $$
+    \begin{align*}
+    z^{(j)}-\left[\begin{array}{c}\boldsymbol{\gamma}\\ \hline \sigma \end{array}\right]^\top \left[\begin{array}{c} \boldsymbol{r}^{(j)} \\ \hline 1 \end{array}\right]=&z^{(j)}-\boldsymbol{\gamma}^\top\boldsymbol{r}^{(j)}-\sigma \\
+    =&\boldsymbol{c}_j^\top\boldsymbol{x}_j - \boldsymbol{\gamma}^\top B\boldsymbol{x}_j -\sigma
+    \end{align*}
+    $$
+
+    &emsp;&emsp;所以，为了主问题$(\mathcal{M})$在新的一次迭代中$(\mathcal{M}_w)$的最优值能够下降，我们期望添加的新可行解$\boldsymbol{x}_{\mathrm{new}}$对应的下降方向$d=z-\boldsymbol{\gamma}^\top\boldsymbol{r}-\sigma<0$，同时这个方向还受到简单问题的可行域的限制。那么，我们就可以构建出后续的一系列子问题$(\mathcal{S})$。
+
+
+&emsp;&emsp;以此，我们期望$d<0$，转化为目标函数的形式就是最小化$d$。注意松弛问题根据分块是可以拆分为$l$个子问题的，所以对于第$i$个子问题，它的数学表达式为：
 
 $$
 \begin{align*}
-\min\limits_{\boldsymbol{x}_i}\quad&(\boldsymbol{c}_i^\top-\boldsymbol{\gamma}^\top B_i)\boldsymbol{x}_i \\
+(\mathcal{S}_i)\quad\min\limits_{\boldsymbol{x}_i}\quad&(\boldsymbol{c}_i^\top-\boldsymbol{\gamma}^\top B_i)\boldsymbol{x}_i \\
 \text{s.t.}\quad&A_i\boldsymbol{x}_i=\boldsymbol{b}_i \\
 &\boldsymbol{x}_i\geq0
 \end{align*}
