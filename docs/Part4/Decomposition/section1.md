@@ -213,20 +213,20 @@ $$
 z^{(k)}_{\mathrm{up}}=\sum\limits_{s=1}^{p^{(k)}}z^{(s)}\lambda_s^{(k)}
 $$
 
-&emsp;&emsp;接着求解所有的子问题，得到松弛问题的最优解$\boldsymbol{x}^{(k)}$和最优值$z^{(k)}_{\mathrm{sub}}$。因为松弛问题的解是不满足复杂约束的，所以，添加复杂约束之后的最优值一定是松弛问题可行域内的点，记为$\boldsymbol{x}$，且满足$B\boldsymbol{x}=\boldsymbol{b}_0$。那么对这个松弛问题就有：
+&emsp;&emsp;接着求解所有的子问题，得到松弛问题的最优值记为$v^{(k)}$。因为松弛问题的解是不满足复杂约束的，所以，添加复杂约束之后的最优值一定是松弛问题可行域内的点，记为$\boldsymbol{x}$，且满足$B\boldsymbol{x}=\boldsymbol{b}_0$。那么对这个松弛问题就有：
 
 $$
 \begin{align*}
-z^{(k)}_{\mathrm{sub}}\leq&\left(\boldsymbol{c}^\top-(\boldsymbol{\gamma}^{(k)})^\top B\right)\boldsymbol{x} \\
-z^{(k)}_{\mathrm{sub}}+(\boldsymbol{\gamma}^{(k)})^\top B\boldsymbol{x}\leq&\boldsymbol{c}^\top\boldsymbol{x} \\
-z^{(k)}_{\mathrm{sub}}+(\boldsymbol{\gamma}^{(k)})^\top \boldsymbol{b}_0\leq&\boldsymbol{c}^\top\boldsymbol{x}
+v^{(k)}\leq&\left(\boldsymbol{c}^\top-(\boldsymbol{\gamma}^{(k)})^\top B\right)\boldsymbol{x} \\
+v^{(k)}+(\boldsymbol{\gamma}^{(k)})^\top B\boldsymbol{x}\leq&\boldsymbol{c}^\top\boldsymbol{x} \\
+v^{(k)}+(\boldsymbol{\gamma}^{(k)})^\top \boldsymbol{b}_0\leq&\boldsymbol{c}^\top\boldsymbol{x}
 \end{align*}
 $$
 
 &emsp;&emsp;所以，下界就可以定义为：
 
 $$
-z^{(k)}_{\mathrm{sub}}=z^{(k)}_{\mathrm{sub}}+(\boldsymbol{\gamma}^{(k)})^\top \boldsymbol{b}_0
+z^{(k)}_{\mathrm{sub}}=v^{(k)}+(\boldsymbol{\gamma}^{(k)})^\top \boldsymbol{b}_0
 $$
 
 !!! question
