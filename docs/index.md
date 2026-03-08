@@ -2,13 +2,13 @@
 
 !!! example "近期更新"
 
-    1. 2026.03.06：[人生海海-札记](./Part1/lifesea.md)
+    1. 2026.03.07：[彼得·卡门青德-札记](./Part1/Hesse/peter.md)
+    2. 2026.03.06：[人生海海-札记](./Part1/lifesea.md)
     2. 2026.02.25：[Benders分解](./Part4/Decomposition/section2.md)
     2. 2026.02.23：[精神与爱欲-札记](./Part1/Hesse/goldmund.md)
     3. 2026.02.16: [罗斯哈尔德-札记](./Part1/Hesse/roshalde.md)
     4. 2026.02.12：[东方之旅-札记](./Part1/Hesse/fahrt.md)
     5. 2026.02.08：[月亮与六便士-札记](./Part1/moon.md)
-    6. 2026.02.06：[DW分解](./Part4/Decomposition/section1.md)
 
 ## 关于我
 
