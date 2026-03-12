@@ -476,7 +476,7 @@ import numpy as np
         r_list.append(A4 @ x1_list[i] + A5 @ x2_list[i] + A6 @ x3_list[i])
 
     # 算法迭代
-    for j in range(mxa_iter):
+    for j in range(max_iter):
         # 求解主问题
         l, g, s = master_problem(p, z_list, r_list)
 
