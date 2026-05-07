@@ -2,6 +2,7 @@
 
 !!! example "近期更新"
 
+    1. 2026.04.26：[生育制度-札记](./Part1/birth.md)
     1. 2026.04.03：[格特露德-札记](./Part1/Hesse/gertrud.md)
     2. 2026.03.19：[黑塞其它文集](./Part1/Hesse/set.md)
     2. 2026.03.17：[无人生还-札记](./Part1/nooneservive.md)
